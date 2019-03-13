@@ -98,20 +98,24 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="flyoceans&#39; blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="Welcome to flyoceans’ blog.西雅图阳光的下午舒服的一匹，尝试了一下怎么快速搭技术博客，网上各种教程也很多, 作为第一篇博文，给自己的求索之旅做个记录。本文采用 Hexo + Githubpages, 将来再用react改造 Quick Start1 HexoHexo 就是一个博客框架，用node.js 实现的，轻量，快速。可以支持你用Markdown写blog，即使你不会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="快速搭建github博客">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/快速搭建github博客/index.html">
 <meta property="og:site_name" content="flyoceans&#39; blog">
+<meta property="og:description" content="Welcome to flyoceans’ blog.西雅图阳光的下午舒服的一匹，尝试了一下怎么快速搭技术博客，网上各种教程也很多, 作为第一篇博文，给自己的求索之旅做个记录。本文采用 Hexo + Githubpages, 将来再用react改造 Quick Start1 HexoHexo 就是一个博客框架，用node.js 实现的，轻量，快速。可以支持你用Markdown写blog，即使你不会">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-13T23:55:19.877Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flyoceans&#39; blog">
+<meta name="twitter:title" content="快速搭建github博客">
+<meta name="twitter:description" content="Welcome to flyoceans’ blog.西雅图阳光的下午舒服的一匹，尝试了一下怎么快速搭技术博客，网上各种教程也很多, 作为第一篇博文，给自己的求索之旅做个记录。本文采用 Hexo + Githubpages, 将来再用react改造 Quick Start1 HexoHexo 就是一个博客框架，用node.js 实现的，轻量，快速。可以支持你用Markdown写blog，即使你不会">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/13/快速搭建github博客/">
 
 
 
@@ -121,7 +125,7 @@
   };
 </script>
 
-  <title>flyoceans' blog</title>
+  <title>快速搭建github博客 | flyoceans' blog</title>
   
 
 
@@ -169,8 +173,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,7 +215,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -291,9 +294,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -325,10 +328,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/13/快速搭建github博客/" class="post-title-link" itemprop="url">快速搭建github博客</a>
+          <h1 class="post-title" itemprop="name headline">快速搭建github博客
+
               
             
           </h1>
@@ -410,9 +411,7 @@
       
 
       
-        
-          
-            <p>Welcome to flyoceans’ blog.<br>西雅图阳光的下午舒服的一匹，尝试了一下怎么快速搭技术博客，网上各种教程也很多, 作为第一篇博文，给自己的求索之旅做个记录。<br>本文采用 Hexo + Githubpages, 将来再用react改造</p>
+        <p>Welcome to flyoceans’ blog.<br>西雅图阳光的下午舒服的一匹，尝试了一下怎么快速搭技术博客，网上各种教程也很多, 作为第一篇博文，给自己的求索之旅做个记录。<br>本文采用 Hexo + Githubpages, 将来再用react改造</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h2 id="1-Hexo"><a href="#1-Hexo" class="headerlink" title="1 Hexo"></a>1 Hexo</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 就是一个博客框架，用node.js 实现的，轻量，快速。可以支持你用Markdown写blog，即使你不会前端(I personally hate node.js?)。<br>部署可以在github或 heroku。用它省去了很多造轮子的问题，各种插件也很完善了，当然高阶的话。。。</p>
 <h2 id="2-环境安装-mac"><a href="#2-环境安装-mac" class="headerlink" title="2 环境安装(mac)"></a>2 环境安装(mac)</h2><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
 <h2 id="3-Hexo操作"><a href="#3-Hexo操作" class="headerlink" title="3 Hexo操作"></a>3 Hexo操作</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init flyoceans.github.io</span><br><span class="line">$ <span class="built_in">cd</span> flyoceans.github.io</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
@@ -442,8 +441,6 @@
 <p><a href="https://www.cnblogs.com/xsilence/p/6001938.html" target="_blank" rel="noopener">Solution</a></p>
 <p>关于github 拒绝访问。最好先分析问题，引用<a href="https://help.github.com/en/articles/error-permission-denied-publickey" target="_blank" rel="noopener">官方</a>，没事别用sudo去肝git。<br><a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">generate new ssh key and add it to ssh-agent</a> 我的ssh-agent 没有identities？？？<br><a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener">add new key to github account</a></p>
 
-          
-        
       
     </div>
 
@@ -466,12 +463,12 @@
       
 
       
+      
+      
 
       
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -481,14 +478,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -508,8 +506,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -572,6 +579,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Hexo"><span class="nav-number">2.</span> <span class="nav-text">1 Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-环境安装-mac"><span class="nav-number">3.</span> <span class="nav-text">2 环境安装(mac)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装hexo"><span class="nav-number">3.1.</span> <span class="nav-text">安装hexo</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Hexo操作"><span class="nav-number">4.</span> <span class="nav-text">3 Hexo操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">4.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compo操作"><span class="nav-number">4.2.</span> <span class="nav-text">compo操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#post-test-blog"><span class="nav-number">4.3.</span> <span class="nav-text">post test blog</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">4.4.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题"><span class="nav-number">4.5.</span> <span class="nav-text">主题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-部署到-github"><span class="nav-number">5.</span> <span class="nav-text">4 部署到 github</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建一个-xxx-github-io-的仓库，xxx是你的名字"><span class="nav-number">5.1.</span> <span class="nav-text">创建一个 xxx.github.io 的仓库，xxx是你的名字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装插件"><span class="nav-number">5.2.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置git"><span class="nav-number">5.3.</span> <span class="nav-text">配置git</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署"><span class="nav-number">5.4.</span> <span class="nav-text">部署</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -700,6 +724,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -715,6 +743,8 @@
 
   
 
+
+  
 
 
   
