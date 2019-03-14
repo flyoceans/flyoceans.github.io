@@ -98,20 +98,25 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="flyoceans&#39; blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="并查集 Union Find记得当年学的第一个算法就是并查集, 但愿有朝一日当年的腿们看到我这篇博客还能想得起我这菜比。此番总结一下: 并查集本质是贪心，用来处理往图里加边的问题。That is, the graph has a fixed population of nodes, and it grows by having edges appear between nodes. Union-F">
+<meta name="keywords" content="Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并查集Union Find">
+<meta property="og:url" content="http://yoursite.com/2019/03/13/并查集Union-Find/index.html">
 <meta property="og:site_name" content="flyoceans&#39; blog">
+<meta property="og:description" content="并查集 Union Find记得当年学的第一个算法就是并查集, 但愿有朝一日当年的腿们看到我这篇博客还能想得起我这菜比。此番总结一下: 并查集本质是贪心，用来处理往图里加边的问题。That is, the graph has a fixed population of nodes, and it grows by having edges appear between nodes. Union-F">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-14T05:08:34.176Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="flyoceans&#39; blog">
+<meta name="twitter:title" content="并查集Union Find">
+<meta name="twitter:description" content="并查集 Union Find记得当年学的第一个算法就是并查集, 但愿有朝一日当年的腿们看到我这篇博客还能想得起我这菜比。此番总结一下: 并查集本质是贪心，用来处理往图里加边的问题。That is, the graph has a fixed population of nodes, and it grows by having edges appear between nodes. Union-F">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/13/并查集Union-Find/">
 
 
 
@@ -121,7 +126,7 @@
   };
 </script>
 
-  <title>flyoceans' blog</title>
+  <title>并查集Union Find | flyoceans' blog</title>
   
 
 
@@ -169,8 +174,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -212,7 +216,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -291,9 +295,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -325,10 +329,8 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/13/并查集Union-Find/" class="post-title-link" itemprop="url">并查集Union Find</a>
+          <h1 class="post-title" itemprop="name headline">并查集Union Find
+
               
             
           </h1>
@@ -410,9 +412,7 @@
       
 
       
-        
-          
-            <h2 id="并查集-Union-Find"><a href="#并查集-Union-Find" class="headerlink" title="并查集 Union Find"></a>并查集 Union Find</h2><p>记得当年学的第一个算法就是并查集, 但愿有朝一日当年的腿们看到我这篇博客还能想得起我这菜比。此番总结一下:</p>
+        <h2 id="并查集-Union-Find"><a href="#并查集-Union-Find" class="headerlink" title="并查集 Union Find"></a>并查集 Union Find</h2><p>记得当年学的第一个算法就是并查集, 但愿有朝一日当年的腿们看到我这篇博客还能想得起我这菜比。此番总结一下:</p>
 <p>并查集本质是贪心，用来处理往图里加边的问题。<br>That is, the graph has a fixed population of nodes, and it grows by having edges appear between nodes. Union-Find structure is to maintain the set of connected components of such a graph.<br>可以解决 Kruskal’s 算法</p>
 <h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int find(int index)</span><br><span class="line">void union(int index1, int index2)</span><br></pre></td></tr></table></figure>
 <h3 id="以leetcode-323-Number-of-Connected-Components-in-an-Undirected-Graph-为例"><a href="#以leetcode-323-Number-of-Connected-Components-in-an-Undirected-Graph-为例" class="headerlink" title="以leetcode 323 Number of Connected Components in an Undirected Graph 为例"></a>以leetcode 323 Number of Connected Components in an Undirected Graph 为例</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class UnionFind &#123;</span><br><span class="line">    int count;</span><br><span class="line">    int[] parents;</span><br><span class="line">    </span><br><span class="line">    public UnionFind(int n) &#123;</span><br><span class="line">        count = n;</span><br><span class="line">        parents = new int[size];</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; parents.length; i++)</span><br><span class="line">            parents[i] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void union(int a, int b) &#123;</span><br><span class="line">        int p_a = find(a);</span><br><span class="line">        int p_b = find(b);</span><br><span class="line">        <span class="keyword">if</span> (p_a != p_b) &#123;</span><br><span class="line">            parents[p_b] = p_a;</span><br><span class="line">            count--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int find(int a) &#123;</span><br><span class="line">        <span class="keyword">while</span> (parents[a] != a) &#123;</span><br><span class="line">            a = parents[a];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int <span class="function"><span class="title">getCount</span></span>() &#123;</span><br><span class="line">        <span class="built_in">return</span> this.count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -421,8 +421,6 @@
 <h3 id="优化2"><a href="#优化2" class="headerlink" title="优化2"></a>优化2</h3><p>保证树尽量平整，加一个权重<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">class UF &#123; </span><br><span class="line">    private int[] parents;</span><br><span class="line">    private int[] ranks;</span><br><span class="line">    </span><br><span class="line">    public UF(int size) &#123;</span><br><span class="line">        parents = new int[size+1];</span><br><span class="line">        ranks = new int[size+1];</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt;= size; i++) &#123;</span><br><span class="line">            parents[i] = i;</span><br><span class="line">            ranks[i] = 1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public boolean union(int u, int v) &#123;</span><br><span class="line">        int pu = find(u);</span><br><span class="line">        int pv = find(v);</span><br><span class="line">        <span class="keyword">if</span> (pu == pv) <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span> (ranks[pu] &gt; ranks[pv]) &#123;</span><br><span class="line">            parents[pv] = pu;</span><br><span class="line">            ranks[pu] += ranks[pv];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            parents[pu] = pv;</span><br><span class="line">            ranks[pv] += ranks[pu];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int find(int u) &#123;</span><br><span class="line">        <span class="keyword">while</span> (parents[u] != u) &#123;</span><br><span class="line">            parents[u] = parents[parents[u]]; // pc</span><br><span class="line">            u = parents[u];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> u;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这一波操作以后，平摊的find() 是O(logn)时间,Union()也就是O(logn)时间</p>
 
-          
-        
       
     </div>
 
@@ -443,203 +441,36 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/13/快速搭建github博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="flyoceans">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="flyoceans' blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/03/13/快速搭建github博客/" class="post-title-link" itemprop="url">快速搭建github博客</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2019-03-13 16:08:08 / Modified: 17:01:32" itemprop="dateCreated datePublished" datetime="2019-03-13T16:08:08-07:00">2019-03-13</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他技术/" itemprop="url" rel="index"><span itemprop="name">其他技术</span></a></span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
           
-
-          
-            
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to flyoceans’ blog.<br>西雅图阳光的下午舒服的一匹，尝试了一下怎么快速搭技术博客，网上各种教程也很多, 作为第一篇博文，给自己的求索之旅做个记录。<br>本文采用 Hexo + Githubpages, 将来再用react改造</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h2 id="1-Hexo"><a href="#1-Hexo" class="headerlink" title="1 Hexo"></a>1 Hexo</h2><p><a href="https://hexo.io/zh-cn/" target="_blank" rel="noopener">Hexo</a> 就是一个博客框架，用node.js 实现的，轻量，快速。可以支持你用Markdown写blog，即使你不会前端(I personally hate node.js?)。<br>部署可以在github或 heroku。用它省去了很多造轮子的问题，各种插件也很完善了，当然高阶的话。。。</p>
-<h2 id="2-环境安装-mac"><a href="#2-环境安装-mac" class="headerlink" title="2 环境安装(mac)"></a>2 环境安装(mac)</h2><h3 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
-<h2 id="3-Hexo操作"><a href="#3-Hexo操作" class="headerlink" title="3 Hexo操作"></a>3 Hexo操作</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init flyoceans.github.io</span><br><span class="line">$ <span class="built_in">cd</span> flyoceans.github.io</span><br><span class="line">$ npm install</span><br></pre></td></tr></table></figure>
-<h3 id="Compo操作"><a href="#Compo操作" class="headerlink" title="Compo操作"></a>Compo操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo clean</span><br><span class="line">$ hexo g</span><br><span class="line">$ hexo s</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>g generate, s start<br>这时候term 应该有提示 localhost:4000 </p>
-</blockquote>
-<h3 id="Post-test-blog"><a href="#Post-test-blog" class="headerlink" title="Post test blog"></a>Post test blog</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new [name]</span><br></pre></td></tr></table></figure>
-<p>注意，生成的文件在  source/_posts 下 name.md, 可以对其修改然后看看效果</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>hexo的大部分配置在 _config.yml 。<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="noopener">官方文档</a></p>
-<p>比如可以改改 Site 下的配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: flyoceans&apos; blog</span><br><span class="line">subtitle: 博客</span><br><span class="line">description:</span><br><span class="line">keywords:</span><br><span class="line">author: flyoceans</span><br><span class="line">language: zh-Hans</span><br><span class="line">timezone:</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>zh-CN 可以会乱码，推荐zh-Hans</p>
-</blockquote>
-<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>下载完以后在 _config.yml 里面配置 theme<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme:next</span><br></pre></td></tr></table></figure></p>
-<p>然后compo操作看效果</p>
-<h2 id="4-部署到-github"><a href="#4-部署到-github" class="headerlink" title="4 部署到 github"></a>4 部署到 github</h2><p>假设你肯定有github账户</p>
-<h3 id="创建一个-xxx-github-io-的仓库，xxx是你的名字"><a href="#创建一个-xxx-github-io-的仓库，xxx是你的名字" class="headerlink" title="创建一个 xxx.github.io 的仓库，xxx是你的名字"></a>创建一个 xxx.github.io 的仓库，xxx是你的名字</h3><p>这是github的福利</p>
-<h3 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-<p>我在这个地方报了几个warning，那可能要更新npm<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install npm -g</span><br></pre></td></tr></table></figure></p>
-<h3 id="配置git"><a href="#配置git" class="headerlink" title="配置git"></a>配置git</h3><p>这一步很关键！在网站 _config.yml 中配deploy<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: &lt;repository ssh url&gt;</span><br><span class="line">  branch: [branch] (可以不填)</span><br></pre></td></tr></table></figure></p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p>这一步可能会有坑：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error: fatal: Not a git repository (or any of the parent directories): .git</span><br></pre></td></tr></table></figure></p>
-<p>或者<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Permission denied (publickey).</span><br></pre></td></tr></table></figure></p>
-<p><a href="https://www.cnblogs.com/xsilence/p/6001938.html" target="_blank" rel="noopener">Solution</a></p>
-<p>关于github 拒绝访问。最好先分析问题，引用<a href="https://help.github.com/en/articles/error-permission-denied-publickey" target="_blank" rel="noopener">官方</a>，没事别用sudo去肝git。<br><a href="https://help.github.com/en/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent" target="_blank" rel="noopener">generate new ssh key and add it to ssh-agent</a> 我的ssh-agent 没有identities？？？<br><a href="https://help.github.com/en/articles/adding-a-new-ssh-key-to-your-github-account" target="_blank" rel="noopener">add new key to github account</a><br>解决完error以后，删掉 .deploy_git 文件再重试一下</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/13/快速搭建github博客/" rel="next" title="快速搭建github博客">
+                <i class="fa fa-chevron-left"></i> 快速搭建github博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -649,14 +480,15 @@
   </article>
 
 
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -676,8 +508,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -759,6 +600,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#并查集-Union-Find"><span class="nav-number">1.</span> <span class="nav-text">并查集 Union Find</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本操作"><span class="nav-number">1.1.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以leetcode-323-Number-of-Connected-Components-in-an-Undirected-Graph-为例"><span class="nav-number">1.2.</span> <span class="nav-text">以leetcode 323 Number of Connected Components in an Undirected Graph 为例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复杂度分析"><span class="nav-number">1.3.</span> <span class="nav-text">复杂度分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优化2"><span class="nav-number">1.4.</span> <span class="nav-text">优化2</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
@@ -887,6 +745,10 @@
 
 
   
+  <script src="/js/src/scrollspy.js?v=7.0.1"></script>
+<script src="/js/src/post-details.js?v=7.0.1"></script>
+
+
 
   
 
@@ -902,6 +764,8 @@
 
   
 
+
+  
 
 
   
