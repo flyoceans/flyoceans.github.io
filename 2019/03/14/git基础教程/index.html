@@ -98,25 +98,27 @@
 
 
 
-  <meta name="description" content="On a 2D plane, we place stones at some integer coordinate points.  Each coordinate point may have at most one stone. Now, a move consists of removing a stone that shares a column or row with another s">
-<meta name="keywords" content="Algorithm,Union Find">
+  <meta name="description" content="git 基本指令三板斧123git statusgit add git commit -m git架构，理解这个图很重要，可以参考廖雪峰的教程add把修改添加到暂存区，commit把修改由暂存区添加到版本库 关于回退如果修改已经添加到版本库12git reset --hard HEAD^ 回到上一个git reset --hard [版本号] 回到任意版本号 如果找不到git log1git re">
+<meta name="keywords" content="git">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 947. Most Stones Removed with Same Row or Column">
-<meta property="og:url" content="http://yoursite.com/2019/03/14/LeetCode-947-Most-Stones-Removed-with-Same-Row-or-Column/index.html">
+<meta property="og:title" content="git基础教程">
+<meta property="og:url" content="http://yoursite.com/2019/03/14/git基础教程/index.html">
 <meta property="og:site_name" content="flyoceans&#39; blog">
-<meta property="og:description" content="On a 2D plane, we place stones at some integer coordinate points.  Each coordinate point may have at most one stone. Now, a move consists of removing a stone that shares a column or row with another s">
+<meta property="og:description" content="git 基本指令三板斧123git statusgit add git commit -m git架构，理解这个图很重要，可以参考廖雪峰的教程add把修改添加到暂存区，commit把修改由暂存区添加到版本库 关于回退如果修改已经添加到版本库12git reset --hard HEAD^ 回到上一个git reset --hard [版本号] 回到任意版本号 如果找不到git log1git re">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-14T08:55:32.165Z">
+<meta property="og:image" content="http://yoursite.com/images/git.png">
+<meta property="og:updated_time" content="2019-03-15T02:29:53.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode 947. Most Stones Removed with Same Row or Column">
-<meta name="twitter:description" content="On a 2D plane, we place stones at some integer coordinate points.  Each coordinate point may have at most one stone. Now, a move consists of removing a stone that shares a column or row with another s">
+<meta name="twitter:title" content="git基础教程">
+<meta name="twitter:description" content="git 基本指令三板斧123git statusgit add git commit -m git架构，理解这个图很重要，可以参考廖雪峰的教程add把修改添加到暂存区，commit把修改由暂存区添加到版本库 关于回退如果修改已经添加到版本库12git reset --hard HEAD^ 回到上一个git reset --hard [版本号] 回到任意版本号 如果找不到git log1git re">
+<meta name="twitter:image" content="http://yoursite.com/images/git.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/14/LeetCode-947-Most-Stones-Removed-with-Same-Row-or-Column/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/14/git基础教程/">
 
 
 
@@ -126,7 +128,7 @@
   };
 </script>
 
-  <title>LeetCode 947. Most Stones Removed with Same Row or Column | flyoceans' blog</title>
+  <title>git基础教程 | flyoceans' blog</title>
   
 
 
@@ -312,7 +314,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/LeetCode-947-Most-Stones-Removed-with-Same-Row-or-Column/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/git基础教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="flyoceans">
@@ -329,7 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 947. Most Stones Removed with Same Row or Column
+          <h1 class="post-title" itemprop="name headline">git基础教程
 
               
             
@@ -355,7 +357,7 @@
                 
               
 
-              <time title="Created: 2019-03-14 01:47:42 / Modified: 01:55:32" itemprop="dateCreated datePublished" datetime="2019-03-14T01:47:42-07:00">2019-03-14</time>
+              <time title="Created: 2019-03-14 17:43:22 / Modified: 19:29:53" itemprop="dateCreated datePublished" datetime="2019-03-14T17:43:22-07:00">2019-03-14</time>
             
 
             
@@ -377,7 +379,7 @@
                 <span class="post-meta-item-text">In</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/刷题算法/" itemprop="url" rel="index"><span itemprop="name">刷题算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他技术/" itemprop="url" rel="index"><span itemprop="name">其他技术</span></a></span>
 
                 
                 
@@ -412,15 +414,28 @@
       
 
       
-        <p>On a 2D plane, we place stones at some integer coordinate points.  Each coordinate point may have at most one stone.</p>
-<p>Now, a move consists of removing a stone that shares a column or row with another stone on the grid.</p>
-<p>What is the largest possible number of moves we can make?</p>
-<p>Example 1:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: stones = [[0,0],[0,1],[1,0],[1,2],[2,1],[2,2]]</span><br><span class="line">Output: 5</span><br></pre></td></tr></table></figure></p>
-<p>Example 2:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: stones = [[0,0],[0,2],[1,1],[2,0],[2,2]]</span><br><span class="line">Output: 3</span><br></pre></td></tr></table></figure></p>
-<p>Example 3:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: stones = [[0,0]]</span><br><span class="line">Output: 0</span><br></pre></td></tr></table></figure></p>
-<p>Note:</p>
-<p>1 &lt;= stones.length &lt;= 1000<br>0 &lt;= stones[i][j] &lt; 10000</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    </span><br><span class="line">    Map&lt;Integer, Integer&gt; f = new HashMap&lt;&gt;();</span><br><span class="line">    int island = 0;</span><br><span class="line">    </span><br><span class="line">    public int removeStones(int[][] stones) &#123;</span><br><span class="line">        island = stones.length;</span><br><span class="line">        <span class="keyword">for</span> (int i = 0; i &lt; stones.length; ++i)</span><br><span class="line">            union(stones[i][0], ~stones[i][1]);</span><br><span class="line">        Set&lt;Integer&gt; <span class="built_in">set</span> = new HashSet&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (int[] stone : stones) &#123;</span><br><span class="line">            set.add(find(stone[0]));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">return</span> stones.length - set.size();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int find(int x) &#123;</span><br><span class="line">        f.putIfAbsent(x, x);</span><br><span class="line">        <span class="keyword">if</span> (f.get(x) != x)</span><br><span class="line">            f.put(x, find(f.get(x)));</span><br><span class="line">        <span class="built_in">return</span> f.get(x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void union(int x, int y) &#123;</span><br><span class="line">        x = find(x);</span><br><span class="line">        y = find(y);</span><br><span class="line">        <span class="keyword">if</span> (x != y) &#123;</span><br><span class="line">            f.put(x, y);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>git</p>
+<h3 id="基本指令"><a href="#基本指令" class="headerlink" title="基本指令"></a>基本指令</h3><p>三板斧<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br><span class="line">git add </span><br><span class="line">git commit -m</span><br></pre></td></tr></table></figure></p>
+<p>git架构，理解这个图很重要，可以参考<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013745374151782eb658c5a5ca454eaa451661275886c6000" target="_blank" rel="noopener">廖雪峰的教程</a><br><img src="/images/git.png" alt="图片"><br>add把修改添加到暂存区，<br>commit把修改由暂存区添加到版本库</p>
+<h3 id="关于回退"><a href="#关于回退" class="headerlink" title="关于回退"></a>关于回退</h3><p>如果修改已经添加到版本库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD^ 回到上一个</span><br><span class="line">git reset --hard [版本号] 回到任意版本号</span><br></pre></td></tr></table></figure></p>
+<p>如果找不到git log<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog 你所有的修改记录都在这里</span><br></pre></td></tr></table></figure></p>
+<p>如果你的修改在工作区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- &lt;file&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果你的修改到了暂存区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD &lt;file&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h3><p>普通删除，注意这只能删除在工作区的文件，删除完以后要commit一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;file&gt;</span><br></pre></td></tr></table></figure></p>
+<p>git clean命令用来从你的工作目录中删除所有没有tracked过的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clean -n</span><br><span class="line">git clean -df</span><br></pre></td></tr></table></figure></p>
+<p>git clean经常和git reset –hard一起结合使用. 记住reset只影响被track过的文件, 所以需要clean来删除没有track过的文件. 结合使用这两个命令能让你的工作目录完全回到一个指定的<commit>的状态</commit></p>
+<p>什么叫tracked? 什么叫untracked?<br>被git add 过的文件就tracked</p>
+<h3 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h3><p>看版本库和工作区文件的区别<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff HEAD -- &lt;file&gt;</span><br></pre></td></tr></table></figure></p>
+<p>查看分支：git branch</p>
+<p>创建分支：git branch <name></name></p>
+<p>切换分支：git checkout <name></name></p>
+<p>创建+切换分支：git checkout -b <name></name></p>
+<p>合并某分支到当前分支：git merge &lt;name某分支&gt;</p>
+<p>删除分支：git branch -d <name></name></p>
+<p>修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；</p>
+<p>当手头工作没有完成时，先把工作现场git stash一下，然后去修复bug，修复后，再git stash pop，回到工作现场。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git stash list</span><br><span class="line">git stash apply @@@</span><br><span class="line">git stash drop @@@</span><br></pre></td></tr></table></figure></p>
+<h3 id="git-ignore-文件"><a href="#git-ignore-文件" class="headerlink" title="git ignore 文件"></a>git ignore 文件</h3><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013758404317281e54b6f5375640abbb11e67be4cd49e0000" target="_blank" rel="noopener">wiki</a></p>
+
       
     </div>
 
@@ -443,9 +458,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
-          
-            <a href="/tags/Union-Find/" rel="tag"># Union Find</a>
+            <a href="/tags/git/" rel="tag"># git</a>
           
         </div>
       
@@ -458,8 +471,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/03/13/并查集Union-Find/" rel="next" title="并查集Union Find">
-                <i class="fa fa-chevron-left"></i> 并查集Union Find
+              <a href="/2019/03/14/LeetCode-947-Most-Stones-Removed-with-Same-Row-or-Column/" rel="next" title="LeetCode 947. Most Stones Removed with Same Row or Column">
+                <i class="fa fa-chevron-left"></i> LeetCode 947. Most Stones Removed with Same Row or Column
               </a>
             
           </div>
@@ -467,10 +480,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/14/git基础教程/" rel="prev" title="git基础教程">
-                git基础教程 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -514,8 +523,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -601,6 +619,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本指令"><span class="nav-number">1.</span> <span class="nav-text">基本指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于回退"><span class="nav-number">2.</span> <span class="nav-text">关于回退</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除文件"><span class="nav-number">3.</span> <span class="nav-text">删除文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他操作"><span class="nav-number">4.</span> <span class="nav-text">其他操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#git-ignore-文件"><span class="nav-number">5.</span> <span class="nav-text">git ignore 文件</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
