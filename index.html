@@ -308,6 +308,165 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/20/聊聊PageRank/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="flyoceans">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="flyoceans' blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/20/聊聊PageRank/" class="post-title-link" itemprop="url">聊聊PageRank</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-03-20 12:39:19 / Modified: 13:30:25" itemprop="dateCreated datePublished" datetime="2019-03-20T12:39:19-07:00">2019-03-20</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>复习MapReduce系列之PageRank</p>
+<p>搜索引擎核心问题: 1.页面资料库；2.建立一种数据结构，可以根据检索词找到对应的页面<br>第一个问题通过爬虫解决，理论上说一个爬虫可以爬完整个互联网(要求web强连通，并且robots协议允许爬)<br>第二个问题倒排索印(inverted index),简单说是 key-value 结构，key是关键词，value是页面编号集合</p>
+<p>比如说搜索 欧文绝杀<br>首先搜索引擎会把“欧文绝杀”分词，分成“欧文”，“绝杀”。然后分别从倒排索引中找“欧文”的集合，“绝杀”的集合，再做交集。最后从资料库中返回结果给用户。</p>
+<p>这是一个简单的搜索引擎框架。但是web网页如此之多，我们并不太关心页面是否全面，我们关心的是质量高的页面能否排在前面。不然用户翻个几页都没有想要的结果，直接就弃用了。</p>
+<h2 id="PageRank算法"><a href="#PageRank算法" class="headerlink" title="PageRank算法"></a>PageRank算法</h2><p>假设世界上只有四张网页：A、B、C、D，抽象为一张有向图,结构如下：</p>
+<p><img src="/images/pagerank/22.png" alt="图片"></p>
+<p>显然这个图是强连通的（从任一节点出发都可以到达另外任何一个节点）。</p>
+<p>PageRank算法是基于这样一种思想：被用户访问越多的网页更可能质量越高. 假设当一个用户停留在某页面时，跳转到页面上每个被链页面的概率是相同的。例如，上图中A页面链向B、C、D，所以一个用户从A跳转到B、C、D的概率各为1/3。设一共有N个网页，则可以组织这样一个N维矩阵：其中i行j列的值表示用户从页面j转到页面i的概率。这样一个矩阵叫做转移矩阵（Transition Matrix）</p>
+<p><img src="/images/pagerank/33.gif" alt="图片"></p>
+<p>然后，设初始时每个页面的rank值为1/N，这里就是1/4。按A-D顺序将页面rank为向量v：</p>
+<p><img src="/images/pagerank/44.gif" alt="图片"></p>
+<p>注意，M第一行分别是A、B、C和D转移到页面A的概率，而v的第一列分别是A、B、C和D当前的rank，因此用M的第一行乘以v的第一列，所得结果就是页面A最新rank的合理估计<a href="https://zh.wikipedia.org/wiki/%E7%9F%A9%E9%99%A3%E4%B9%98%E6%B3%95" target="_blank" rel="noopener">矩阵乘法</a>，同理，Mv的结果就分别代表A、B、C、D新rank：</p>
+<p><img src="/images/pagerank/55.gif" alt="图片"></p>
+<p>然后用M再乘以这个新的rank向量，又会产生一个更新的rank向量。经过多次迭代后，大约收敛在（1/4, 1/4, 1/5, 1/4），这就是A、B、C、D最后的pagerank。</p>
+<h2 id="Mapreduce-设计思路"><a href="#Mapreduce-设计思路" class="headerlink" title="Mapreduce 设计思路"></a>Mapreduce 设计思路</h2><p>input 样本：<br>每一行中第一列为网页i，第二列为该网页的pagerank 值，之后的列均为网页i 链接的网页。<br>因为我们要迭代的计算PageRank值，那么每次MapReduce的输出要和输入的格式是一样的，这样才能使得Mapreduce 的输出用来作为下一轮MapReduce 的输入。</p>
+<p>Mapper:<br>对每一行文本进行解析，获得当前网页、当前网页的PageRank值、当前网页要链接到的其他网页<br>计算出要链接到的其他网友的个数，然后求出当前网页对其他网页的贡献值。<br>输出设计时，要输出两种：<br>第一种输出的&lt; key ,value&gt;中的key 表示其他网页，value 表示当前网页对其他网页的贡献值。<br>第二种输出的&lt; key ,value&gt;中的key 表示当前网页，value 表示所有其他网页。<br>并且，为了区别这两种输出，第一种输出的value里加入“@”，第二种输出的value里加入“&amp;”</p>
+<p>Reducer:<br>shuffule的输出也即是reduce的输入。<br>reduce输入的key 直接作为输出的key<br>对reduce输入的value 进行解析，它是一个列表，<br>若列表里的值里包含“@”，就把该值“@”后面的字符串转化成float型加起来<br>若列表里的值里包含“&amp;”，就把该值“&amp;”后面的字符串提取出来<br>把所有贡献值的加总，和提取的字符串进行连接，作为reduce的输出value</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/14/git基础教程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -353,12 +512,24 @@
                 
               
 
-              <time title="Created: 2019-03-14 17:43:22 / Modified: 19:29:53" itemprop="dateCreated datePublished" datetime="2019-03-14T17:43:22-07:00">2019-03-14</time>
+              <time title="Created: 2019-03-14 17:43:22" itemprop="dateCreated datePublished" datetime="2019-03-14T17:43:22-07:00">2019-03-14</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-03-15 00:59:58" itemprop="dateModified" datetime="2019-03-15T00:59:58-07:00">2019-03-15</time>
               
             
           </span>
@@ -1055,7 +1226,7 @@
                 
                   <a href="/archives">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">5</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -1099,7 +1270,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">3</span>
+                      
+                    
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">tags</span>
                   </a>
                 </div>
