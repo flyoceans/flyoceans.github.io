@@ -353,7 +353,7 @@
                 
               
 
-              <time title="Created: 2019-03-20 12:39:19 / Modified: 13:30:25" itemprop="dateCreated datePublished" datetime="2019-03-20T12:39:19-07:00">2019-03-20</time>
+              <time title="Created: 2019-03-20 12:39:19 / Modified: 13:32:59" itemprop="dateCreated datePublished" datetime="2019-03-20T12:39:19-07:00">2019-03-20</time>
             
 
             
@@ -394,11 +394,10 @@
       
         
           
-            <p>复习MapReduce系列之PageRank</p>
-<p>搜索引擎核心问题: 1.页面资料库；2.建立一种数据结构，可以根据检索词找到对应的页面<br>第一个问题通过爬虫解决，理论上说一个爬虫可以爬完整个互联网(要求web强连通，并且robots协议允许爬)<br>第二个问题倒排索印(inverted index),简单说是 key-value 结构，key是关键词，value是页面编号集合</p>
+            <h2 id="复习MapReduce系列之PageRank"><a href="#复习MapReduce系列之PageRank" class="headerlink" title="复习MapReduce系列之PageRank"></a>复习MapReduce系列之PageRank</h2><p>搜索引擎核心问题: 1.页面资料库；2.建立一种数据结构，可以根据检索词找到对应的页面<br>第一个问题通过爬虫解决，理论上说一个爬虫可以爬完整个互联网(要求web强连通，并且robots协议允许爬)<br>第二个问题倒排索印(inverted index),简单说是 key-value 结构，key是关键词，value是页面编号集合</p>
 <p>比如说搜索 欧文绝杀<br>首先搜索引擎会把“欧文绝杀”分词，分成“欧文”，“绝杀”。然后分别从倒排索引中找“欧文”的集合，“绝杀”的集合，再做交集。最后从资料库中返回结果给用户。</p>
 <p>这是一个简单的搜索引擎框架。但是web网页如此之多，我们并不太关心页面是否全面，我们关心的是质量高的页面能否排在前面。不然用户翻个几页都没有想要的结果，直接就弃用了。</p>
-<h2 id="PageRank算法"><a href="#PageRank算法" class="headerlink" title="PageRank算法"></a>PageRank算法</h2><p>假设世界上只有四张网页：A、B、C、D，抽象为一张有向图,结构如下：</p>
+<h2 id="PageRank算法原理"><a href="#PageRank算法原理" class="headerlink" title="PageRank算法原理"></a>PageRank算法原理</h2><p>假设世界上只有四张网页：A、B、C、D，抽象为一张有向图,结构如下：</p>
 <p><img src="/images/pagerank/22.png" alt="图片"></p>
 <p>显然这个图是强连通的（从任一节点出发都可以到达另外任何一个节点）。</p>
 <p>PageRank算法是基于这样一种思想：被用户访问越多的网页更可能质量越高. 假设当一个用户停留在某页面时，跳转到页面上每个被链页面的概率是相同的。例如，上图中A页面链向B、C、D，所以一个用户从A跳转到B、C、D的概率各为1/3。设一共有N个网页，则可以组织这样一个N维矩阵：其中i行j列的值表示用户从页面j转到页面i的概率。这样一个矩阵叫做转移矩阵（Transition Matrix）</p>
